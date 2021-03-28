@@ -28,7 +28,6 @@
         <module>deduplicate-cache</module>
         <module>deduplicate-gen</module>
         <module>deduplicate-core</module>
-        <module>deduplicate-spring</module>
         <module>deduplicate-all</module>
         <module>deduplicate-bom</module>
     </modules>
