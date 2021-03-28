@@ -12,3 +12,11 @@
 `deduplicate-all: 提供完整的依赖包，项目依赖该artifactId，并且选择自己想用的cache和gen，就可以实现组件在项目中的引入使用`
 
 `deduplicate-bom: 提供完整的依赖版本关系，项目也可以通过import该pom，实现依赖版本的引入，不用担心版本冲突的问题`
+
+#### Todo List
+- [ ] 增加自定义的重放异常信息
+- [ ] 增加统一日志处理
+- [ ] 增加全局版本控制
+- [ ] 增加Spring支持
+- [ ] 增加Spring-starter依赖
+- [ ] 增加可选redis缓存机制
