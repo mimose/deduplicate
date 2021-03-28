@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.mimose.component</groupId>
+    <artifactId>deduplicate-bom</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <description>Provide deduplicate version bom to component</description>
+
+    <properties>
+        <deduplicate-all.version>1.0-SNAPSHOT</deduplicate-all.version>
+
+        <deduplicate-cache-api.version>1.0-SNAPSHOT</deduplicate-cache-api.version>
+        <deduplicate-cache-map.version>1.0-SNAPSHOT</deduplicate-cache-map.version>
+
+        <deduplicate-gen-api.version>1.0-SNAPSHOT</deduplicate-gen-api.version>
+        <deduplicate-gen-jackson.version>1.0-SNAPSHOT</deduplicate-gen-jackson.version>
+
+        <deduplicate-common.version>1.0-SNAPSHOT</deduplicate-common.version>
+
+        <deduplicate-core.version>1.0-SNAPSHOT</deduplicate-core.version>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.mimose.component</groupId>
+                <artifactId>deduplicate-all</artifactId>
+                <version>${deduplicate-all.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mimose.component</groupId>
+                <artifactId>deduplicate-common</artifactId>
+                <version>${deduplicate-common.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mimose.component</groupId>
+                <artifactId>deduplicate-core</artifactId>
+                <version>${deduplicate-core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mimose.component</groupId>
+                <artifactId>deduplicate-cache-api</artifactId>
+                <version>${deduplicate-cache-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mimose.component</groupId>
+                <artifactId>deduplicate-cache-map</artifactId>
+                <version>${deduplicate-cache-map.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mimose.component</groupId>
+                <artifactId>deduplicate-gen-api</artifactId>
+                <version>${deduplicate-gen-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mimose.component</groupId>
+                <artifactId>deduplicate-gen-jackson</artifactId>
+                <version>${deduplicate-gen-jackson.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>

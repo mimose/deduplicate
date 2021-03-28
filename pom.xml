@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.mimose.component</groupId>
+    <artifactId>deduplicate-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <description>A deduplicate component</description>
+    <developers>
+        <developer>
+            <id>mimose</id>
+            <name>mimose</name>
+            <url>https://github.com/mimose</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>git@github.com:mimose/deduplicate.git</url>
+        <connection>git@github.com:mimose/deduplicate.git</connection>
+        <developerConnection>git@github.com:mimose/deduplicate.git</developerConnection>
+    </scm>
+
+    <modules>
+        <module>deduplicate-common</module>
+        <module>deduplicate-cache</module>
+        <module>deduplicate-gen</module>
+        <module>deduplicate-core</module>
+        <module>deduplicate-spring</module>
+        <module>deduplicate-all</module>
+        <module>deduplicate-bom</module>
+    </modules>
+
+    <properties>
+        <project.compiler.level>1.8</project.compiler.level>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <plugin.compiler.version>3.2</plugin.compiler.version>
+        <plugin.compiler.version>3.2</plugin.compiler.version>
+        <plugin.surefire.version>2.18.1</plugin.surefire.version>
+        <plugin.surefire.skip-it>true</plugin.surefire.skip-it>
+        <plugin.surefire.ignore-failure>true</plugin.surefire.ignore-failure>
+        <plugin.maven-javadoc-plugin.version>2.9.1</plugin.maven-javadoc-plugin.version>
+
+        <deduplicate-bom.version>1.0-SNAPSHOT</deduplicate-bom.version>
+        <common-lang3.version>3.12.0</common-lang3.version>
+        <cglib.version>3.3.0</cglib.version>
+
+        <lombok.version>1.18.16</lombok.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${common-lang3.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.mimose.component</groupId>
+                <artifactId>deduplicate-bom</artifactId>
+                <version>${deduplicate-bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${cglib.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <!--compiler plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${plugin.compiler.version}</version>
+                <configuration>
+                    <source>${project.compiler.level}</source>
+                    <target>${project.compiler.level}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${plugin.surefire.version}</version>
+                <configuration>
+                    <skipTests>${plugin.surefire.skip-it}</skipTests>
+                    <testFailureIgnore>${plugin.surefire.ignore-failure}</testFailureIgnore>
+                </configuration>
+            </plugin>
+
+            <!-- Javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${plugin.maven-javadoc-plugin.version}</version>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>
