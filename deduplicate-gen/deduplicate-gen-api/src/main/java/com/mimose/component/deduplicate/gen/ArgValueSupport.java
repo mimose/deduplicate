@@ -4,6 +4,7 @@ import com.mimose.component.deduplicate.exceptions.ActionException;
 import com.mimose.component.deduplicate.exceptions.GenException;
 import com.mimose.component.deduplicate.exceptions.LoaderException;
 import com.mimose.component.deduplicate.gen.api.ArgValueGenerator;
+import com.mimose.component.deduplicate.log.FluentLogger;
 import com.mimose.component.deduplicate.utils.Assert;
 import com.mimose.component.deduplicate.utils.Loader;
 import com.mimose.component.deduplicate.utils.MdFive;
@@ -18,6 +19,8 @@ import java.lang.reflect.Method;
  */
 @NoArgsConstructor
 public final class ArgValueSupport {
+    private static final FluentLogger LOGGER = FluentLogger.getLogger(ArgValueSupport.class);
+    private static final String MODULE = "CACHE";
 
     private static final ArgValueGenerator argValueGenerator;
 
@@ -44,8 +47,11 @@ public final class ArgValueSupport {
                     .append(method.getName())
                     .append(argValueGenerator.generate(args))
                     .append(DEDUPLICATE_KEY_SALT);
-            return MdFive.from(fullKey.toString());
+            final String output = MdFive.from(fullKey.toString());
+            LOGGER.debug().module(MODULE).message("generate the deduplicate key, output: {}").args(output).build();
+            return output;
         } catch (Exception e) {
+            LOGGER.error().module(MODULE).message("generate the deduplicate key error").throwable(e).build();
             throw new GenException("Fail to Generate the Deduplicate Key", e);
         }
     }

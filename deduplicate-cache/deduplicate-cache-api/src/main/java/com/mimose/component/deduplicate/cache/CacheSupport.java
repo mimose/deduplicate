@@ -3,6 +3,7 @@ package com.mimose.component.deduplicate.cache;
 import com.mimose.component.deduplicate.cache.api.CacheManager;
 import com.mimose.component.deduplicate.exceptions.ActionException;
 import com.mimose.component.deduplicate.exceptions.LoaderException;
+import com.mimose.component.deduplicate.log.FluentLogger;
 import com.mimose.component.deduplicate.utils.Assert;
 import com.mimose.component.deduplicate.utils.Loader;
 import org.apache.commons.lang3.StringUtils;
@@ -13,7 +14,8 @@ import org.apache.commons.lang3.StringUtils;
  * @date 2021/3/25
  */
 public final class CacheSupport {
-
+    private static final FluentLogger LOGGER = FluentLogger.getLogger(CacheSupport.class);
+    private static final String MODULE = "CACHE";
     private static final CacheManager cacheManager;
 
     static {
@@ -34,6 +36,7 @@ public final class CacheSupport {
         Assert.isTrue(ttl > 0, "Can't put the cache, ttl must be greater than zero");
         Assert.notBlank(deduplicateKey, "Can't put the cache, key cannot be empty");
         cacheManager.cache(deduplicateKey, ttl);
+        LOGGER.debug().module(MODULE).message("put the cache, key: {}, ttl: {}").args(deduplicateKey, ttl).build();
     }
 
     /**
@@ -45,6 +48,8 @@ public final class CacheSupport {
         if(StringUtils.isEmpty(deduplicateKey)) {
             return false;
         }
-        return cacheManager.check(deduplicateKey);
+        final boolean result = cacheManager.check(deduplicateKey);
+        LOGGER.debug().module(MODULE).message("whether it is deduplicate, key: {}, result: {}").args(deduplicateKey, result).build();
+        return result;
     }
 }
