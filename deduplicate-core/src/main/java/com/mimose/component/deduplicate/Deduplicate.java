@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 
 /**
  * @author mimose
- * @description
+ * @description do duplicate check
  * @date 2021/3/26
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

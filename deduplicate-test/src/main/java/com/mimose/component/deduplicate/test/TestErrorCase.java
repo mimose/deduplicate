@@ -22,7 +22,6 @@ public class TestErrorCase {
             service.getOne("123");
             System.out.println("TestService getOne, id=123");
         } catch (Exception e) {
-            System.out.println(e.getMessage());
         }
     }
 }

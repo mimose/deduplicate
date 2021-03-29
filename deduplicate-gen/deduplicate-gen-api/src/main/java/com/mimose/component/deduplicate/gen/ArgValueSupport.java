@@ -48,10 +48,10 @@ public final class ArgValueSupport {
                     .append(argValueGenerator.generate(args))
                     .append(DEDUPLICATE_KEY_SALT);
             final String output = MdFive.from(fullKey.toString());
-            LOGGER.debug().module(MODULE).message("generate the deduplicate key, output: {}").args(output).build();
+            LOGGER.debug().module(MODULE).message("Generate the deduplicate key, output: [{}]").args(output).build();
             return output;
         } catch (Exception e) {
-            LOGGER.error().module(MODULE).message("generate the deduplicate key error").throwable(e).build();
+            LOGGER.error().module(MODULE).message("Generate the deduplicate key error").throwable(e).build();
             throw new GenException("Fail to Generate the Deduplicate Key", e);
         }
     }

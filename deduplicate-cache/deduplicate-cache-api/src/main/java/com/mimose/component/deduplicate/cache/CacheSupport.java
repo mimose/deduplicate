@@ -36,7 +36,7 @@ public final class CacheSupport {
         Assert.isTrue(ttl > 0, "Can't put the cache, ttl must be greater than zero");
         Assert.notBlank(deduplicateKey, "Can't put the cache, key cannot be empty");
         cacheManager.cache(deduplicateKey, ttl);
-        LOGGER.debug().module(MODULE).message("put the cache, key: {}, ttl: {}").args(deduplicateKey, ttl).build();
+        LOGGER.debug().module(MODULE).message("Put the Deduplicate-Key cache, key: [{}], ttl: [{}]").args(deduplicateKey, ttl).build();
     }
 
     /**
@@ -48,8 +48,6 @@ public final class CacheSupport {
         if(StringUtils.isEmpty(deduplicateKey)) {
             return false;
         }
-        final boolean result = cacheManager.check(deduplicateKey);
-        LOGGER.debug().module(MODULE).message("whether it is deduplicate, key: {}, result: {}").args(deduplicateKey, result).build();
-        return result;
+        return cacheManager.check(deduplicateKey);
     }
 }

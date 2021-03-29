@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Level(priority = 1)
 public class MapCacheManager implements CacheManager {
-    private static final Map<String, Long> CACHE_MAP = new ConcurrentHashMap();
+    private static final Map<String, Long> CACHE_MAP = new ConcurrentHashMap<>();
 
     @Override
     public void cache(String deduplicateKey, int ttl) {
@@ -32,7 +32,7 @@ public class MapCacheManager implements CacheManager {
     }
 
     static {
-        (new ScheduledThreadPoolExecutor(1)).scheduleAtFixedRate(() -> {
+        (new ScheduledThreadPoolExecutor(1, (runnable) -> new Thread(runnable, "MAP_CACHE_EVICT_TASK"))).scheduleAtFixedRate(() -> {
             final long current = System.currentTimeMillis();
             CACHE_MAP.entrySet().removeIf(entry -> entry.getValue() <= current);
         }, 500, 500, TimeUnit.MILLISECONDS);
