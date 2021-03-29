@@ -6,7 +6,7 @@
 
     <groupId>com.mimose.component</groupId>
     <artifactId>deduplicate-test</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1</version>
     <description>Provide deduplicate test case to component</description>
 
     <dependencies>

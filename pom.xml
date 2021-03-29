@@ -7,7 +7,7 @@
     <groupId>com.mimose.component</groupId>
     <artifactId>deduplicate-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1</version>
     <description>A deduplicate component</description>
     <developers>
         <developer>
@@ -42,7 +42,7 @@
         <plugin.surefire.ignore-failure>true</plugin.surefire.ignore-failure>
         <plugin.maven-javadoc-plugin.version>2.9.1</plugin.maven-javadoc-plugin.version>
 
-        <deduplicate-bom.version>1.0-SNAPSHOT</deduplicate-bom.version>
+        <deduplicate-bom.version>0.0.1</deduplicate-bom.version>
         <common-lang3.version>3.12.0</common-lang3.version>
         <slf4j.version>1.7.30</slf4j.version>
         <logback.version>1.2.3</logback.version>

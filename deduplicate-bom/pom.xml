@@ -7,21 +7,21 @@
     <groupId>com.mimose.component</groupId>
     <artifactId>deduplicate-bom</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1</version>
     <description>Provide deduplicate version bom to component</description>
 
     <properties>
-        <deduplicate-all.version>1.0-SNAPSHOT</deduplicate-all.version>
+        <deduplicate-all.version>0.0.1</deduplicate-all.version>
 
-        <deduplicate-cache-api.version>1.0-SNAPSHOT</deduplicate-cache-api.version>
-        <deduplicate-cache-map.version>1.0-SNAPSHOT</deduplicate-cache-map.version>
+        <deduplicate-cache-api.version>0.0.1</deduplicate-cache-api.version>
+        <deduplicate-cache-map.version>0.0.1</deduplicate-cache-map.version>
 
-        <deduplicate-gen-api.version>1.0-SNAPSHOT</deduplicate-gen-api.version>
-        <deduplicate-gen-jackson.version>1.0-SNAPSHOT</deduplicate-gen-jackson.version>
+        <deduplicate-gen-api.version>0.0.1</deduplicate-gen-api.version>
+        <deduplicate-gen-jackson.version>0.0.1</deduplicate-gen-jackson.version>
 
-        <deduplicate-common.version>1.0-SNAPSHOT</deduplicate-common.version>
+        <deduplicate-common.version>0.0.1</deduplicate-common.version>
 
-        <deduplicate-core.version>1.0-SNAPSHOT</deduplicate-core.version>
+        <deduplicate-core.version>0.0.1</deduplicate-core.version>
 
     </properties>
 
