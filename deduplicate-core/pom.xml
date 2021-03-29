@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>deduplicate-parent</artifactId>
+        <groupId>com.mimose.component</groupId>
+        <version>0.0.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>deduplicate-core</artifactId>
+    <description>Provide deduplicate-core to component</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.mimose.component</groupId>
+            <artifactId>deduplicate-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mimose.component</groupId>
+            <artifactId>deduplicate-cache-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mimose.component</groupId>
+            <artifactId>deduplicate-gen-api</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>
