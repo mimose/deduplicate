@@ -19,10 +19,6 @@
             <artifactId>deduplicate-cache-map</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.mimose.component</groupId>
-            <artifactId>deduplicate-gen-jackson</artifactId>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>

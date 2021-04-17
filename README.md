@@ -5,10 +5,6 @@
 
     提供防重放组件中的缓存机制，基于SPI机制，可以进行扩展，目前实现了map的缓存机制，可以基于api实现redis等其他的缓存机制
 
-`deduplicate-gen: `
-
-    提供防重放组件中的对象key生成机制，基于SPI机制，可以进行扩展，目前实现了Jackson的生成机制，可以基于api实现其他不同的序列化生成对象key的机制
-
 `deduplicate-common: `
 
     防重放组件中的公共信息

@@ -13,4 +13,12 @@ import java.lang.annotation.*;
 public @interface Deduplicated {
 
     int ttl() default 1;
+
+    String tokenGAid() default "";
+
+    TokenGType tokenGType() default TokenGType.HEADER;
+
+    enum TokenGType {
+        HEADER
+    }
 }

@@ -16,9 +16,6 @@
         <deduplicate-cache-api.version>0.0.1</deduplicate-cache-api.version>
         <deduplicate-cache-map.version>0.0.1</deduplicate-cache-map.version>
 
-        <deduplicate-gen-api.version>0.0.1</deduplicate-gen-api.version>
-        <deduplicate-gen-jackson.version>0.0.1</deduplicate-gen-jackson.version>
-
         <deduplicate-common.version>0.0.1</deduplicate-common.version>
 
         <deduplicate-core.version>0.0.1</deduplicate-core.version>
@@ -54,17 +51,6 @@
                 <groupId>com.mimose.component</groupId>
                 <artifactId>deduplicate-cache-map</artifactId>
                 <version>${deduplicate-cache-map.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.mimose.component</groupId>
-                <artifactId>deduplicate-gen-api</artifactId>
-                <version>${deduplicate-gen-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.mimose.component</groupId>
-                <artifactId>deduplicate-gen-jackson</artifactId>
-                <version>${deduplicate-gen-jackson.version}</version>
             </dependency>
 
         </dependencies>
