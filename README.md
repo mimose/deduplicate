@@ -1,34 +1,34 @@
 # deduplicate
-#### 防重放组件
+#### A component used to prevent duplicated attacks
+* [简体中文](README_zh.md)
 
 `deduplicate-cache: `
-
-    提供防重放组件中的缓存机制，基于SPI机制，可以进行扩展，目前实现了map的缓存机制，可以基于api实现redis等其他的缓存机制
-
+ - Provides the caching mechanism in this deduplicate component. 
+ - Based on the SPI mechanism, it can be extended. 
+ - Currently, the map caching mechanism is implemented, and other caching mechanisms such as redis can be implemented based on the api.
+  
 `deduplicate-common: `
-
-    防重放组件中的公共信息
+ - Provide the common tools in this deduplicate component 
 
 `deduplicate-core: `
-
-    防重放组件中的主要逻辑实现
+ - Function implementation code in this deduplicate component 
 
 `deduplicate-all: `
-
-    提供完整的依赖包，项目依赖该artifactId，并且选择自己想用的cache和gen，就可以实现组件在项目中的引入使用
+ - Provide a complete dependency package.
+ - The project can rely on this artifactId, and choose the `deduplicate-cache` you want to use, then you can implement the introduction and use of the component in the project 
 
 `deduplicate-bom: `
-
-    提供完整的依赖版本关系，项目也可以通过import该pom，实现依赖版本的引入，不用担心版本冲突的问题
+ - Provide a complete dependency version relationship. 
+ - The project can also import the pom to realize the introduction of the dependency version without worrying about version conflicts. 
 
 #### How to use
-`可参考 <deduplicate-test>`
+Can refer to  `<deduplicate-test>`
 
-#### version List
+#### Version List
 **v0.0.1**
-- [X] 增加自定义的重放异常信息
-- [X] 增加统一日志处理
+- [X] Add custom replay exception information
+- [X] Add unified log processing
 ***
 **v0.0.2**
-- [X] 增加唯一token机制
-- [X] 增加全局版本控制
+- [X] Add the unique token mechanism
+- [X] Add global version control
