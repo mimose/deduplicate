@@ -5,17 +5,34 @@ package com.mimose.component.deduplicate.exceptions;
  * @description exception in action
  * @date 2021/3/25
  */
-public final class ActionException extends RuntimeException {
+public final class ActionException {
 
-    public ActionException() {
-        super();
+    public static class NormalActionException extends RuntimeException {
+        public NormalActionException() {
+            super();
+        }
+
+        public NormalActionException(String message) {
+            super(message);
+        }
+
+        public NormalActionException(String message, Throwable cause) {
+            super(message, cause);
+        }
     }
 
-    public ActionException(String message) {
-        super(message);
-    }
+    public static class UnsupportedActionException extends RuntimeException {
+        public UnsupportedActionException() {
+            super();
+        }
 
-    public ActionException(String message, Throwable cause) {
-        super(message, cause);
+        public UnsupportedActionException(String message) {
+            super(message);
+        }
+
+        public UnsupportedActionException(String message, Throwable cause) {
+            super(message, cause);
+        }
+
     }
 }

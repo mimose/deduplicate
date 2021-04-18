@@ -25,6 +25,8 @@ public final class Deduplicate {
                 .method(method)
                 .params(args)
                 .ttl(annotation.ttl())
+                .tokenGAid(annotation.tokenGAid())
+                .tokenGType(annotation.tokenGType())
                 .work();
     }
 

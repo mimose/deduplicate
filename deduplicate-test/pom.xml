@@ -6,7 +6,7 @@
 
     <groupId>com.mimose.component</groupId>
     <artifactId>deduplicate-test</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <description>Provide deduplicate test case to component</description>
 
     <dependencies>
@@ -17,10 +17,6 @@
         <dependency>
             <groupId>com.mimose.component</groupId>
             <artifactId>deduplicate-cache-map</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.mimose.component</groupId>
-            <artifactId>deduplicate-gen-jackson</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

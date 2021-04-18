@@ -46,7 +46,7 @@ public final class InstanceFactory {
         try {
             return clazz.newInstance();
         } catch (Exception e) {
-            throw new ActionException("InstanceFactory Fail, newInstance fail", e);
+            throw new ActionException.NormalActionException("InstanceFactory Fail, newInstance fail", e);
         }
     }
 

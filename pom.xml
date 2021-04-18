@@ -7,7 +7,7 @@
     <groupId>com.mimose.component</groupId>
     <artifactId>deduplicate-parent</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1</version>
+    <version>${revision}</version>
     <description>A deduplicate component</description>
     <developers>
         <developer>
@@ -26,15 +26,16 @@
     <modules>
         <module>deduplicate-common</module>
         <module>deduplicate-cache</module>
-        <module>deduplicate-gen</module>
         <module>deduplicate-core</module>
         <module>deduplicate-all</module>
         <module>deduplicate-bom</module>
     </modules>
 
     <properties>
+        <revision>0.0.2</revision>
         <project.compiler.level>1.8</project.compiler.level>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <plugin.flatten.version>1.1.0</plugin.flatten.version>
         <plugin.compiler.version>3.2</plugin.compiler.version>
         <plugin.compiler.version>3.2</plugin.compiler.version>
         <plugin.surefire.version>2.18.1</plugin.surefire.version>
@@ -42,11 +43,12 @@
         <plugin.surefire.ignore-failure>true</plugin.surefire.ignore-failure>
         <plugin.maven-javadoc-plugin.version>2.9.1</plugin.maven-javadoc-plugin.version>
 
-        <deduplicate-bom.version>0.0.1</deduplicate-bom.version>
         <common-lang3.version>3.12.0</common-lang3.version>
         <slf4j.version>1.7.30</slf4j.version>
         <logback.version>1.2.3</logback.version>
         <cglib.version>3.3.0</cglib.version>
+        <servlet-api.version>4.0.1</servlet-api.version>
+        <jackson.version>2.11.4</jackson.version>
 
         <lombok.version>1.18.16</lombok.version>
     </properties>
@@ -71,7 +73,7 @@
             <dependency>
                 <groupId>com.mimose.component</groupId>
                 <artifactId>deduplicate-bom</artifactId>
-                <version>${deduplicate-bom.version}</version>
+                <version>${revision}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -92,12 +94,60 @@
                 <artifactId>cglib</artifactId>
                 <version>${cglib.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${plugin.flatten.version}</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <!--compiler plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -5,12 +5,12 @@ package com.mimose.component.deduplicate.gen.api;
  * @description
  * @date 2021/3/25
  */
-public interface ArgValueGenerator {
+public interface Generator {
 
     /**
      * generate
      * @param args
      * @return
      */
-    String generate(Object[] args);
+    String generate(Object... args);
 }
