@@ -19,7 +19,7 @@ public class ArgValueGenerator implements Generator {
     }
 
     @Override
-    public String generate(Object[] args) {
+    public String generate(Object... args) {
         try {
             return MAPPER.writeValueAsString(args);
         } catch (JsonProcessingException e) {

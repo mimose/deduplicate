@@ -12,5 +12,5 @@ public interface Generator {
      * @param args
      * @return
      */
-    String generate(Object[] args);
+    String generate(Object... args);
 }

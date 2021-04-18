@@ -14,6 +14,8 @@ public final class Constant {
 
     public static final String LINE_SEPARATOR = "-";
 
+    public static final String DEDUPLICATE_TOKEN_HEADER = "deduplicateToken";
+
     public static final Integer ZERO = 0;
 
     public static final String EMPTY_STR = "";
@@ -23,5 +25,4 @@ public final class Constant {
     public static final List EMPTY_LIST = Collections.emptyList();
 
     public static final Set EMPTY_SET= Collections.emptySet();
-
 }

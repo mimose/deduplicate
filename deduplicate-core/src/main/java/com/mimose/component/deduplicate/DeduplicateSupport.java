@@ -4,7 +4,7 @@ import com.mimose.component.deduplicate.annotations.Deduplicated;
 import com.mimose.component.deduplicate.cache.CacheSupport;
 import com.mimose.component.deduplicate.exceptions.ActionException;
 import com.mimose.component.deduplicate.exceptions.DuplicateException;
-import com.mimose.component.deduplicate.gen.GenerateSupport;
+import com.mimose.component.deduplicate.gen.GenerateFactory;
 import com.mimose.component.deduplicate.instances.Instance;
 import com.mimose.component.deduplicate.log.FluentLogger;
 import lombok.AccessLevel;
@@ -22,8 +22,6 @@ import java.util.Objects;
 public final class DeduplicateSupport {
     private static final FluentLogger LOGGER = FluentLogger.getLogger(DeduplicateSupport.class);
     private static final String MODULE = "DEDUPLICATE_SUPPORT";
-
-    private static GenerateSupport GENERATE_SUPPORT;
 
     private static CacheSupport CACHE_SUPPORT;
 
@@ -70,10 +68,9 @@ public final class DeduplicateSupport {
         }
 
         public void work() throws DuplicateException {
-            final String argValueKey = gen().genArgValueKey(this.method, this.params);
-            // TODO token
-            final String token = gen().genToken(this.tokenGAid, this.tokenGType, this.params);
-            String fullKey = argValueKey;
+            final String argValueKey = GenerateFactory.Support().genArgValueKey(this.method, this.params);
+            final String token = GenerateFactory.Support().genToken(this.tokenGAid, this.tokenGType, this.params);
+            String fullKey =GenerateFactory.Support().fillDeduplicateKey(argValueKey, token);
             final boolean isDuplicate = cache().checkDuplication(fullKey);
             if(isDuplicate) {
                 LOGGER.warn().module(MODULE).message("Duplicate attack happened!! Method: [{} # {}]").args(this.method.getDeclaringClass().getName(), this.method.getName()).build();
@@ -85,21 +82,6 @@ public final class DeduplicateSupport {
     }
 
 
-    private static GenerateSupport gen() {
-        if(Objects.isNull(GENERATE_SUPPORT)) {
-            synchronized (Deduplicate.class) {
-                if(Objects.isNull(GENERATE_SUPPORT)) {
-                    GENERATE_SUPPORT = Instance.singleton(GenerateSupport.class);
-                }
-            }
-        }
-        if(Objects.isNull(GENERATE_SUPPORT)) {
-            LOGGER.error().module(MODULE).message("ARG_VALUE_SUPPORT is not present, please determine whether there is a dependency").build();
-            throw new ActionException("ArgValueSupport is null");
-        }
-        return GENERATE_SUPPORT;
-    }
-
     private static CacheSupport cache() {
         if(Objects.isNull(CACHE_SUPPORT)) {
             synchronized (Deduplicate.class) {
@@ -110,7 +92,7 @@ public final class DeduplicateSupport {
         }
         if(Objects.isNull(CACHE_SUPPORT)) {
             LOGGER.error().module(MODULE).message("CACHE_SUPPORT is not present, please determine whether there is a dependency").build();
-            throw new ActionException("CacheSupport is null");
+            throw new ActionException.NormalActionException("CacheSupport is null");
         }
         return CACHE_SUPPORT;
     }

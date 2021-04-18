@@ -7,7 +7,7 @@
     <groupId>com.mimose.component</groupId>
     <artifactId>deduplicate-parent</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <description>A deduplicate component</description>
     <developers>
         <developer>
@@ -41,11 +41,12 @@
         <plugin.surefire.ignore-failure>true</plugin.surefire.ignore-failure>
         <plugin.maven-javadoc-plugin.version>2.9.1</plugin.maven-javadoc-plugin.version>
 
-        <deduplicate-bom.version>0.0.1</deduplicate-bom.version>
+        <deduplicate-bom.version>0.0.2</deduplicate-bom.version>
         <common-lang3.version>3.12.0</common-lang3.version>
         <slf4j.version>1.7.30</slf4j.version>
         <logback.version>1.2.3</logback.version>
         <cglib.version>3.3.0</cglib.version>
+        <servlet-api.version>4.0.1</servlet-api.version>
         <jackson.version>2.11.4</jackson.version>
 
         <lombok.version>1.18.16</lombok.version>
@@ -91,6 +92,12 @@
                 <groupId>cglib</groupId>
                 <artifactId>cglib</artifactId>
                 <version>${cglib.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
             </dependency>
 
             <dependency>

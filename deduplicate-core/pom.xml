@@ -5,7 +5,7 @@
     <parent>
         <artifactId>deduplicate-parent</artifactId>
         <groupId>com.mimose.component</groupId>
-        <version>0.0.1</version>
+        <version>0.0.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -26,6 +26,11 @@
         <dependency>
             <groupId>com.mimose.component</groupId>
             <artifactId>deduplicate-cache-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
         </dependency>
 
         <dependency>

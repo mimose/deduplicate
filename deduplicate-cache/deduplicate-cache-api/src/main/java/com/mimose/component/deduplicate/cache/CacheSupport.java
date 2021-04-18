@@ -22,7 +22,7 @@ public final class CacheSupport {
         try {
             cacheManager = Loader.load(CacheManager.class, CacheSupport.class.getClassLoader());
         } catch (LoaderException e) {
-            throw new ActionException("Can't support the Cache Manager, missing ServiceLoader");
+            throw new ActionException.NormalActionException("Can't support the Cache Manager, missing ServiceLoader");
         }
         Assert.notNull(cacheManager, "Can't support the Cache Manager, Load CacheManager result is null");
     }

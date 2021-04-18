@@ -1,5 +1,7 @@
 package com.mimose.component.deduplicate.annotations;
 
+import com.mimose.component.deduplicate.constants.Constant;
+
 import java.lang.annotation.*;
 
 /**
@@ -14,7 +16,7 @@ public @interface Deduplicated {
 
     int ttl() default 1;
 
-    String tokenGAid() default "";
+    String tokenGAid() default Constant.DEDUPLICATE_TOKEN_HEADER;
 
     TokenGType tokenGType() default TokenGType.HEADER;
 
