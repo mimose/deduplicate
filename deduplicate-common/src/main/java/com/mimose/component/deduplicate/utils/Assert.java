@@ -11,6 +11,7 @@ import java.util.Objects;
  * @date 2021/3/25
  */
 public final class Assert {
+    private Assert() {}
 
     public static void notNull(Object obj, String message) {
         if(Objects.isNull(obj)) {

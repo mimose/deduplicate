@@ -7,8 +7,6 @@ import com.mimose.component.deduplicate.exceptions.DuplicateException;
 import com.mimose.component.deduplicate.gen.GenerateFactory;
 import com.mimose.component.deduplicate.instances.Instance;
 import com.mimose.component.deduplicate.log.FluentLogger;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
 
 import java.lang.reflect.Method;
 import java.util.Objects;
@@ -18,8 +16,8 @@ import java.util.Objects;
  * @description support to do duplicate check
  * @date 2021/3/26
  */
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class DeduplicateSupport {
+    private DeduplicateSupport() {}
     private static final FluentLogger LOGGER = FluentLogger.getLogger(DeduplicateSupport.class);
     private static final String MODULE = "DEDUPLICATE_SUPPORT";
 
@@ -29,8 +27,8 @@ public final class DeduplicateSupport {
         return new InnerDeduplicateWorker();
     }
 
-    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     static class InnerDeduplicateWorker {
+        private InnerDeduplicateWorker() {}
 
         private Method method;
 

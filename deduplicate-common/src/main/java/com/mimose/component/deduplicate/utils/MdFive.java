@@ -9,6 +9,7 @@ import java.security.NoSuchAlgorithmException;
  * @date 2021/3/25
  */
 public final class MdFive {
+    private MdFive() {}
 
     public static String from(String input) {
         try {

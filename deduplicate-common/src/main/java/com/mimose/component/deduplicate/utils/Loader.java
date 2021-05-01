@@ -11,6 +11,7 @@ import java.util.ServiceLoader;
  * @date 2021/3/25
  */
 public final class Loader {
+    private Loader() {}
 
     /**
      * load the object about this class, by SPI

@@ -1,7 +1,6 @@
 package com.mimose.component.deduplicate.proxy;
 
 import com.mimose.component.deduplicate.Deduplicate;
-import lombok.RequiredArgsConstructor;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
@@ -13,9 +12,12 @@ import java.lang.reflect.Method;
  * @description
  * @date 2021/3/26
  */
-@RequiredArgsConstructor
 public final class CglibProxy implements MethodInterceptor, Proxy {
     private final Object proxyTarget;
+
+    public CglibProxy(Object proxyTarget) {
+        this.proxyTarget = proxyTarget;
+    }
 
     @Override
     public Object intercept(Object o, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {

@@ -5,7 +5,6 @@ import com.mimose.component.deduplicate.exceptions.GenException;
 import com.mimose.component.deduplicate.log.FluentLogger;
 import com.mimose.component.deduplicate.utils.MdFive;
 import com.mimose.component.deduplicate.utils.StringUtil;
-import lombok.NoArgsConstructor;
 
 import java.lang.reflect.Method;
 
@@ -16,8 +15,9 @@ import static com.mimose.component.deduplicate.constants.Constant.LINE_SEPARATOR
  * @description provide Arg Value Support (Load specific ArgValueGenerator)
  * @date 2021/3/25
  */
-@NoArgsConstructor
 public final class GenerateSupport {
+    public GenerateSupport() {}
+
     private static final FluentLogger LOGGER = FluentLogger.getLogger(GenerateSupport.class);
     private static final String MODULE = "CACHE";
 

@@ -1,7 +1,5 @@
 package com.mimose.component.deduplicate.proxy;
 
-import lombok.RequiredArgsConstructor;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
@@ -10,9 +8,12 @@ import java.lang.reflect.Method;
  * @description
  * @date 2021/3/26
  */
-@RequiredArgsConstructor
 public final class NullProxy implements InvocationHandler, Proxy {
     private final Object proxyTarget;
+
+    public NullProxy(Object proxyTarget) {
+        this.proxyTarget = proxyTarget;
+    }
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {

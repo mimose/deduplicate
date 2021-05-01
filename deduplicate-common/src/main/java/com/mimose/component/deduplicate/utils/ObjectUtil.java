@@ -10,6 +10,7 @@ import java.util.function.Supplier;
  * @date 2021/4/18
  */
 public final class ObjectUtil extends ObjectUtils {
+    private ObjectUtil() {}
 
     public static <T> T requireNonNull(T obj, Supplier<RuntimeException> nullExSupplier) {
         if(obj == null) {

@@ -2,8 +2,6 @@ package com.mimose.component.deduplicate.instances;
 
 import com.mimose.component.deduplicate.exceptions.ActionException;
 import com.mimose.component.deduplicate.utils.Assert;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -13,8 +11,9 @@ import java.util.concurrent.ConcurrentHashMap;
  * @description Instance Factory
  * @date 2021/3/25
  */
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class InstanceFactory {
+    private InstanceFactory() {}
+
     private static volatile InstanceFactory factory;
     private static final Integer SINGLETON_MAP_CAPACITY = 16;
     private Map<String, Object> singletonMap;

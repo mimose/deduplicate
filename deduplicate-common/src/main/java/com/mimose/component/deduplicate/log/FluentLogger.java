@@ -1,8 +1,7 @@
 package com.mimose.component.deduplicate.log;
 
 import com.mimose.component.deduplicate.log.api.*;
-import lombok.AccessLevel;
-import lombok.Setter;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -14,7 +13,6 @@ public final class FluentLogger {
 
     private FluentLogger(){}
 
-    @Setter(value = AccessLevel.PRIVATE)
     private org.slf4j.Logger realLogger;
 
     public static FluentLogger getLogger(Class clazz) {
@@ -53,4 +51,7 @@ public final class FluentLogger {
         return info;
     }
 
+    private void setRealLogger(Logger realLogger) {
+        this.realLogger = realLogger;
+    }
 }
