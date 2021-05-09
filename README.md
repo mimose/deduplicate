@@ -40,3 +40,6 @@
 **v0.0.3**
 - [x] 增加Spring支持
 - [x] 增加Spring-starter依赖
+***
+**v0.0.4**
+- [ ] 增加可选redis缓存机制

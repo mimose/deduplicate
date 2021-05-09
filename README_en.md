@@ -42,3 +42,6 @@ Can refer to  `<deduplicate-test>`
 **v0.0.3**
 - [x] Add spring support
 - [x] Add spring-starter support
+***
+**v0.0.4**
+- [ ] Add optional redis caching mechanism
