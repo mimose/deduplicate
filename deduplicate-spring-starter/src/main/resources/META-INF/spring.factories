@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.mimose.component.deduplicate.spring.config.DeduplicateSpringAutoConfiguration

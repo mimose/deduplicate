@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>deduplicate-parent</artifactId>
+        <groupId>com.mimose.component</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>deduplicate-spring-starter</artifactId>
+    <description>Integrate Spring Framework, provide a deduplicate component with Spring Starter</description>
+
+    <properties>
+        <spring-framework-boot.version>2.4.5</spring-framework-boot.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.mimose.component</groupId>
+            <artifactId>deduplicate-spring</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>${spring-framework-boot.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>

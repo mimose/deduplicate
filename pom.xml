@@ -30,10 +30,14 @@
         <module>deduplicate-cache</module>
         <module>deduplicate-core</module>
         <module>deduplicate-spring</module>
+        <module>deduplicate-spring-starter</module>
     </modules>
 
     <properties>
-        <revision>0.0.2</revision>
+        <revision>0.0.3</revision>
+
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <project.compiler.level>1.8</project.compiler.level>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <plugin.flatten.version>1.1.0</plugin.flatten.version>

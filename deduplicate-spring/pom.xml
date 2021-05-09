@@ -5,12 +5,12 @@
     <parent>
         <artifactId>deduplicate-parent</artifactId>
         <groupId>com.mimose.component</groupId>
-        <version>0.0.2</version>
+        <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>deduplicate-spring</artifactId>
-    <description>Integrate Spring Framework, provide a deduplicate component</description>
+    <description>Integrate Spring Framework, provide a deduplicate component with Spring</description>
 
     <properties>
         <spring-framework.version>5.3.6</spring-framework.version>
