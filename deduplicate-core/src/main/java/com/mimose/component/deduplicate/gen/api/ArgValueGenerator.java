@@ -5,6 +5,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mimose.component.deduplicate.exceptions.GenException;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import java.util.Arrays;
+
 /**
  * @author mimose
  * @description provide specific ArgValueGenerator (Jackson)
@@ -21,7 +25,7 @@ public class ArgValueGenerator implements Generator {
     @Override
     public String generate(Object... args) {
         try {
-            return MAPPER.writeValueAsString(args);
+            return MAPPER.writeValueAsString(Arrays.stream(args).filter(arg -> !(arg instanceof ServletRequest) && !(arg instanceof ServletResponse)).toArray());
         } catch (JsonProcessingException e) {
             throw new GenException("ArgValueGenerator (Jackson) - gen error", e);
         }

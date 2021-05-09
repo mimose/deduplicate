@@ -7,6 +7,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 
@@ -16,6 +17,7 @@ import java.lang.reflect.Method;
  * @date 2021/5/1
  */
 @Aspect
+@Component
 public class DeduplicateSpringAspect {
 
     @Pointcut("@annotation(com.mimose.component.deduplicate.annotations.Deduplicated)")

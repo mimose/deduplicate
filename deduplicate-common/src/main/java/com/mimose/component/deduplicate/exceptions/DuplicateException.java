@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
  * @description exception when there is a duplication
  * @date 2021/3/26
  */
-public final class DuplicateException extends Exception {
+public final class DuplicateException extends RuntimeException {
     private static final String DUPLICATE_EX_DEFAULT_MESSAGE = "A duplicated exception occurred";
 
     public DuplicateException() {
