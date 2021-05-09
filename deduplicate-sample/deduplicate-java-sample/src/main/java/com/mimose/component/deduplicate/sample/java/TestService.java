@@ -1,4 +1,4 @@
-package com.mimose.component.deduplicate.test;
+package com.mimose.component.deduplicate.sample.java;
 
 import com.mimose.component.deduplicate.annotations.Deduplicated;
 import com.mimose.component.deduplicate.log.FluentLogger;
