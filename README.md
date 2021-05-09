@@ -13,6 +13,12 @@
 `deduplicate-core: `
  - 防重放组件中的主要逻辑实现
 
+`deduplicate-spring: `
+ - 防重放组件的Spring依赖版本，提供通过注解的方式来启动和使用该组件
+
+`deduplicate-spring-starter: `
+ - 防重放组件的Spring Starter依赖版本，提供自动注入的方式，自动启动，并通过注解使用
+
 `deduplicate-all: `
  - 提供完整的依赖包，项目依赖该artifactId，并且选择自己想用的`deduplicate-cache`，就可以实现组件在项目中的引入使用
 
@@ -32,5 +38,5 @@
 - [X] 增加全局版本控制
 ***
 **v0.0.3**
-- [ ] 增加Spring支持
-- [ ] 增加Spring-starter依赖
+- [x] 增加Spring支持
+- [x] 增加Spring-starter依赖
