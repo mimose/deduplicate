@@ -6,6 +6,7 @@ package com.mimose.component.deduplicate.cache.redis.starter;
  * @date 2021/5/15
  */
 public class RedisProperties {
+    public static final String MODULE = "RedisCache";
 
     public static class RedisPropertiesKey {
 

@@ -1,6 +1,8 @@
 package com.mimose.component.deduplicate.cache.redis.pool;
 
+import com.mimose.component.deduplicate.cache.redis.starter.RedisCacheStarter;
 import com.mimose.component.deduplicate.cache.redis.starter.RedisPropertiesHolder;
+import com.mimose.component.deduplicate.log.FluentLogger;
 import com.mimose.component.deduplicate.utils.Assert;
 import io.lettuce.core.RedisClient;
 import io.lettuce.core.RedisURI;
@@ -14,6 +16,7 @@ import java.time.Duration;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.mimose.component.deduplicate.cache.redis.starter.RedisProperties.MODULE;
 import static com.mimose.component.deduplicate.cache.redis.starter.RedisProperties.RedisPropertiesKey.*;
 
 /**
@@ -22,6 +25,7 @@ import static com.mimose.component.deduplicate.cache.redis.starter.RedisProperti
  * @date 2021/5/15
  */
 public final class LettuceRedisConnectionPool {
+    private static FluentLogger LOGGER = FluentLogger.getLogger(RedisCacheStarter.class);
 
     private LettuceRedisConnectionPool() {}
 
@@ -63,6 +67,10 @@ public final class LettuceRedisConnectionPool {
 
     private static final String STATISTIC_OUTPUT = "The RedisConnectionPool statistics >>> [MinIdle: {0}, MaxIdle: {1}, MaxTotal: {2}, NumIdle: {3}, NumActive: {4}, NumWaiters: {5}]";
 
+    private static final int TEST_REDIS_CONNECTION_TIME = 5;
+
+    private static final String TEST_REDIS_CONNECTION_KEY = "DEDUPLICATE-REDIS-CACHE-CONNECT-TEST";
+
     private static final long BORROW_MAX_WAIT_MILLIS = 10000L;
 
     private static Map<String, String> PROPERTIES;
@@ -84,6 +92,8 @@ public final class LettuceRedisConnectionPool {
                     POOL_INSTANCE.initRedisClient();
                     POOL_INSTANCE.initConnectionPoolConfig();
                     POOL_INSTANCE.initConnectionPool();
+
+                    LOGGER.info().module(MODULE).message("open Redis Connection Pool success").build();
                 }
             }
         }
@@ -128,10 +138,37 @@ public final class LettuceRedisConnectionPool {
                             .build();
 
                     redisClient = RedisClient.create(redisURI);
+
+                    testRedisClient();
                 }
             }
         }
         return redisClient;
+    }
+
+    private void testRedisClient() {
+        reTestRedisClient(TEST_REDIS_CONNECTION_TIME);
+    }
+
+    private void reTestRedisClient(int testRedisConnectionTime) {
+        if(testRedisConnectionTime-- > 0) {
+            StatefulRedisConnection<String, String> connection = null;
+            try {
+                connection = redisClient.connect();
+                connection.async().get(TEST_REDIS_CONNECTION_KEY);
+            } catch (Exception e) {
+                if(testRedisConnectionTime == 0) {
+                    LOGGER.error().module(MODULE).message("test Redis Client ({}) fail, will exist System, the reason is {}").args((TEST_REDIS_CONNECTION_TIME - testRedisConnectionTime), e.getMessage()).throwable(e).build();
+                    System.exit(0);
+                }
+                LOGGER.warn().module(MODULE).message("test Redis Client ({}) fail, will retry, the reason is {}").args((TEST_REDIS_CONNECTION_TIME - testRedisConnectionTime), e.getMessage()).build();
+                reTestRedisClient(testRedisConnectionTime);
+            } finally {
+                if(Objects.nonNull(connection)) {
+                    connection.close();
+                }
+            }
+        }
     }
 
     /**

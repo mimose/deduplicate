@@ -12,7 +12,6 @@ import com.mimose.component.deduplicate.log.FluentLogger;
  */
 public final class RedisCacheStarter {
     private static FluentLogger LOGGER = FluentLogger.getLogger(RedisCacheStarter.class);
-    private static final String MODULE = "RedisCache";
 
     public static void startRedisCache() {
         boolean automaticStart = RedisPropertiesHolder.checkIsAutomaticStart();
@@ -23,7 +22,7 @@ public final class RedisCacheStarter {
             RedisCacheManager.withOperator(
                     new LettuceRedisOperator()
             );
-            LOGGER.info().module(MODULE).message("start success").build();
+            LOGGER.info().module(RedisProperties.MODULE).message("start success").build();
         }
     }
 
