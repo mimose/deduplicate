@@ -6,7 +6,7 @@
  - Provides the caching mechanism in this deduplicate component. 
  - Based on the SPI mechanism, it can be extended. 
  - Currently, the map caching mechanism is implemented, and other caching mechanisms such as redis can be implemented based on the api.
-  
+ - Currently, the Redis caching mechanism is implemented, and other caching mechanisms can be implemented based on the api.
 `deduplicate-common: `
  - Provide the common tools in this deduplicate component 
 
@@ -44,4 +44,5 @@ Can refer to  `<deduplicate-test>`
 - [x] Add spring-starter support
 ***
 **v0.0.4**
-- [ ] Add optional redis caching mechanism
+- [x] Add optional redis caching mechanism
+- [x] Add the starter to complete some work at startup through DeduplicateStarter.start()

@@ -6,6 +6,7 @@
  - 提供防重放组件中的缓存机制.
  - 基于SPI机制，可以进行扩展.
  - 目前实现了map的缓存机制，可以基于api实现redis等其他的缓存机制
+ - 目前实现了redis的缓存机制，可以基于api实现其他的缓存机制
  
 `deduplicate-common: `
  - 提供防重放组件中的公用工具
@@ -42,4 +43,5 @@
 - [x] 增加Spring-starter依赖
 ***
 **v0.0.4**
-- [ ] 增加可选redis缓存机制
+- [x] 增加可选redis缓存机制
+- [x] 增加启动器，通过DeduplicateStarter.start()在启动时完成一些工作
