@@ -16,9 +16,13 @@
             <groupId>com.mimose.component</groupId>
             <artifactId>deduplicate-spring</artifactId>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.mimose.component</groupId>-->
+<!--            <artifactId>deduplicate-cache-map</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.mimose.component</groupId>
-            <artifactId>deduplicate-cache-map</artifactId>
+            <artifactId>deduplicate-cache-redis</artifactId>
         </dependency>
 
         <dependency>

@@ -1,6 +1,5 @@
 package com.mimose.component.deduplicate.cache.redis.pool;
 
-import com.mimose.component.deduplicate.cache.redis.starter.RedisCacheStarter;
 import com.mimose.component.deduplicate.cache.redis.starter.RedisPropertiesHolder;
 import com.mimose.component.deduplicate.log.FluentLogger;
 import com.mimose.component.deduplicate.utils.Assert;
@@ -25,7 +24,7 @@ import static com.mimose.component.deduplicate.cache.redis.starter.RedisProperti
  * @date 2021/5/15
  */
 public final class LettuceRedisConnectionPool {
-    private static FluentLogger LOGGER = FluentLogger.getLogger(RedisCacheStarter.class);
+    private static FluentLogger LOGGER = FluentLogger.getLogger(LettuceRedisConnectionPool.class);
 
     private LettuceRedisConnectionPool() {}
 
@@ -158,7 +157,7 @@ public final class LettuceRedisConnectionPool {
                 connection.async().get(TEST_REDIS_CONNECTION_KEY);
             } catch (Exception e) {
                 if(testRedisConnectionTime == 0) {
-                    LOGGER.error().module(MODULE).message("test Redis Client ({}) fail, will exist System, the reason is {}").args((TEST_REDIS_CONNECTION_TIME - testRedisConnectionTime), e.getMessage()).throwable(e).build();
+                    LOGGER.error().module(MODULE).message("test Redis Client ({}) fail, will exit System, the reason is {}").args((TEST_REDIS_CONNECTION_TIME - testRedisConnectionTime), e.getMessage()).throwable(e).build();
                     System.exit(0);
                 }
                 LOGGER.warn().module(MODULE).message("test Redis Client ({}) fail, will retry, the reason is {}").args((TEST_REDIS_CONNECTION_TIME - testRedisConnectionTime), e.getMessage()).build();

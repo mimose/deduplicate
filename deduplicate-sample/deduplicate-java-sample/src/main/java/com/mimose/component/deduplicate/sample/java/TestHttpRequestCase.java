@@ -3,6 +3,7 @@ package com.mimose.component.deduplicate.sample.java;
 import com.mimose.component.deduplicate.constants.Constant;
 import com.mimose.component.deduplicate.instances.Instance;
 import com.mimose.component.deduplicate.proxy.Proxies;
+import com.mimose.component.deduplicate.starter.DeduplicateStarter;
 import com.mimose.component.deduplicate.utils.StringUtil;
 
 import javax.servlet.*;
@@ -22,6 +23,8 @@ import java.util.*;
 public class TestHttpRequestCase {
 
     public static void main(String[] args) {
+        DeduplicateStarter.start();
+
         TestService service = Proxies.proxy(new TestService());
         service.getOne(Instance.prototype(FakeHttpServletRequest.class), "123");
         System.out.println("TestService getOne, id=123");

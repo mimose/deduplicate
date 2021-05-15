@@ -3,6 +3,8 @@ package com.mimose.component.deduplicate.utils;
 import com.mimose.component.deduplicate.annotations.Level;
 import com.mimose.component.deduplicate.exceptions.LoaderException;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ServiceLoader;
 
 /**
@@ -48,5 +50,25 @@ public final class Loader {
             }
         }
         return service;
+    }
+
+    /**
+     * load all objects about this class, by SPI
+     * @param clazz
+     * @param classLoader
+     * @param <T>
+     * @return
+     * @throws LoaderException
+     */
+    public static <T> List<T> loadAll(Class<T> clazz, ClassLoader classLoader) throws LoaderException {
+        final ServiceLoader<T> loaders = ServiceLoader.load(clazz, classLoader);
+        if(loaders == null) {
+            throw new LoaderException();
+        }
+        List<T> services = new ArrayList<>();
+        for (T loader : loaders) {
+            services.add(loader);
+        }
+        return services;
     }
 }

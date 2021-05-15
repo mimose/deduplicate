@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  * @description provide specific cache manager (Map)
  * @date 2021/3/25
  */
-@Level(priority = 2)
+@Level(priority = 1)
 public class MapCacheManager implements CacheManager {
     private static final Map<String, Long> CACHE_MAP = new ConcurrentHashMap<>();
 

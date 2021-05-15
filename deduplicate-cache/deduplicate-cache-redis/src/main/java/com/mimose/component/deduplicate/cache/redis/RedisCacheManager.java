@@ -3,7 +3,6 @@ package com.mimose.component.deduplicate.cache.redis;
 import com.mimose.component.deduplicate.annotations.Level;
 import com.mimose.component.deduplicate.cache.api.CacheManager;
 import com.mimose.component.deduplicate.cache.redis.operators.api.RedisOperator;
-import com.mimose.component.deduplicate.cache.redis.starter.RedisCacheStarter;
 import com.mimose.component.deduplicate.exceptions.CacheException;
 
 /**
@@ -11,14 +10,10 @@ import com.mimose.component.deduplicate.exceptions.CacheException;
  * @description provide specific cache manager (Redis)
  * @date 2021/5/15
  */
-@Level(priority = 1)
+@Level(priority = 2)
 public class RedisCacheManager implements CacheManager {
 
     private static RedisOperator redisOperator;
-
-    static {
-        RedisCacheStarter.startRedisCache();
-    }
 
     @Override
     public void cache(String deduplicateKey, int ttl) {
