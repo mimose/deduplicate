@@ -7,7 +7,7 @@
     <groupId>com.mimose.component</groupId>
     <artifactId>deduplicate-bom</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
     <description>Provide deduplicate version bom to component</description>
 
     <dependencyManagement>
@@ -38,6 +38,11 @@
             <dependency>
                 <groupId>com.mimose.component</groupId>
                 <artifactId>deduplicate-cache-map</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mimose.component</groupId>
+                <artifactId>deduplicate-cache-redis</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

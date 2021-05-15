@@ -6,7 +6,7 @@
 
     <groupId>com.mimose.component</groupId>
     <artifactId>deduplicate-all</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
     <description>Provide deduplicate-all to component</description>
 
     <dependencyManagement>
@@ -39,6 +39,11 @@
         <dependency>
             <groupId>com.mimose.component</groupId>
             <artifactId>deduplicate-cache-map</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.mimose.component</groupId>
+            <artifactId>deduplicate-cache-redis</artifactId>
             <optional>true</optional>
         </dependency>
 

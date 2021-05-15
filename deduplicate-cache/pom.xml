@@ -16,6 +16,7 @@
     <modules>
         <module>deduplicate-cache-api</module>
         <module>deduplicate-cache-map</module>
+        <module>deduplicate-cache-redis</module>
     </modules>
 
 
