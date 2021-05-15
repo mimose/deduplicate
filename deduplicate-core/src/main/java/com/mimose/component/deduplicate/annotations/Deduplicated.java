@@ -21,6 +21,9 @@ public @interface Deduplicated {
     TokenGType tokenGType() default TokenGType.HEADER;
 
     enum TokenGType {
+        /**
+         * How to pass token: request header
+         */
         HEADER
     }
 }

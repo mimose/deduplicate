@@ -7,6 +7,10 @@ package com.mimose.component.deduplicate.proxy;
  */
 public interface Proxy {
 
+    /**
+     * wrap the object
+     * @return
+     */
     Object wrap();
 
 }

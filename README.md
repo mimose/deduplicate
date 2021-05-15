@@ -27,9 +27,10 @@
  - 提供完整的依赖版本关系，项目也可以通过import该pom，实现依赖版本的引入，不用担心版本冲突的问题
 
 #### How to use
-可参考 `<deduplicate-test>`
+可参考 `<deduplicate-sample>`
 
 #### Version List
+##### 1.0.0-GA
 **v0.0.1**
 - [X] 增加自定义的重放异常信息
 - [X] 增加统一日志处理
@@ -45,3 +46,4 @@
 **v0.0.4**
 - [x] 增加可选redis缓存机制
 - [x] 增加启动器，通过DeduplicateStarter.start()在启动时完成一些工作
+***

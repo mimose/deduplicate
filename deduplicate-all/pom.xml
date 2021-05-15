@@ -6,7 +6,7 @@
 
     <groupId>com.mimose.component</groupId>
     <artifactId>deduplicate-all</artifactId>
-    <version>0.0.4</version>
+    <version>1.0.0</version>
     <description>Provide deduplicate-all to component</description>
 
     <dependencyManagement>

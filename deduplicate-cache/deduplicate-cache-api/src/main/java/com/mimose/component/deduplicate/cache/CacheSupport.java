@@ -16,15 +16,15 @@ import org.apache.commons.lang3.StringUtils;
 public final class CacheSupport {
     private static final FluentLogger LOGGER = FluentLogger.getLogger(CacheSupport.class);
     private static final String MODULE = "CACHE";
-    private static final CacheManager cacheManager;
+    private static final CacheManager CACHE_MANAGER;
 
     static {
         try {
-            cacheManager = Loader.load(CacheManager.class, CacheSupport.class.getClassLoader());
+            CACHE_MANAGER = Loader.load(CacheManager.class, CacheSupport.class.getClassLoader());
         } catch (LoaderException e) {
             throw new ActionException.NormalActionException("Can't support the Cache Manager, missing ServiceLoader");
         }
-        Assert.notNull(cacheManager, "Can't support the Cache Manager, Load CacheManager result is null");
+        Assert.notNull(CACHE_MANAGER, "Can't support the Cache Manager, Load CacheManager result is null");
     }
 
     /**
@@ -35,7 +35,7 @@ public final class CacheSupport {
     public void put(String deduplicateKey, int ttl) {
         Assert.isTrue(ttl > 0, "Can't put the cache, ttl must be greater than zero");
         Assert.notBlank(deduplicateKey, "Can't put the cache, key cannot be empty");
-        cacheManager.cache(deduplicateKey, ttl);
+        CACHE_MANAGER.cache(deduplicateKey, ttl);
         LOGGER.debug().module(MODULE).message("Put the Deduplicate-Key cache, key: [{}], ttl: [{}]").args(deduplicateKey, ttl).build();
     }
 
@@ -48,6 +48,6 @@ public final class CacheSupport {
         if(StringUtils.isEmpty(deduplicateKey)) {
             return false;
         }
-        return cacheManager.check(deduplicateKey);
+        return CACHE_MANAGER.check(deduplicateKey);
     }
 }

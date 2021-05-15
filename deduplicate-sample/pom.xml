@@ -7,7 +7,7 @@
     <groupId>com.mimose.component</groupId>
     <artifactId>deduplicate-sample</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.4</version>
+    <version>1.0.0</version>
     <description>Provide the samples of this component</description>
     <modules>
         <module>deduplicate-spring-sample</module>

@@ -28,9 +28,10 @@
  - The project can also import the pom to realize the introduction of the dependency version without worrying about version conflicts. 
 
 #### How to use
-Can refer to  `<deduplicate-test>`
+Can refer to  `<deduplicate-sample>`
 
 #### Version List
+##### 1.0.0-GA
 **v0.0.1**
 - [X] Add custom replay exception information
 - [X] Add unified log processing
@@ -46,3 +47,4 @@ Can refer to  `<deduplicate-test>`
 **v0.0.4**
 - [x] Add optional redis caching mechanism
 - [x] Add the starter to complete some work at startup through DeduplicateStarter.start()
+***
